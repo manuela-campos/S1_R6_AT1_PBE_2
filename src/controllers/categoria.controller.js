@@ -62,7 +62,7 @@ const categoriaController = {
       }
       const resultado = await categoriaAtual.update(
         id_categoria,
-        descricaoCategoria
+        nome_categoria
       );
 
       if (resultado.affectedRows === 0) {
