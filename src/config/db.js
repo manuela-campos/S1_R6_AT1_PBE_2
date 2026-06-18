@@ -73,7 +73,7 @@ export async function initializeDatabase() {
                 vinculoImagem CHAR(250) NOT NULL,
                 dataCad TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
                 id_categoria INT,
-                FOREIGN KEY (id_categoria) REFERENCES categorias(id)
+                FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria)
             );
         `);
 
