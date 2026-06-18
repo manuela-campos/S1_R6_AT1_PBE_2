@@ -25,7 +25,7 @@ const produtoModel = {
 
   selectAll: async () => {
     const sql = "SELECT * FROM produtos;";
-    const rows = await connection.execute(sql);
+    const rows = await pool.execute(sql);
     return rows[0];
   },
   selectById: async (id) => {
