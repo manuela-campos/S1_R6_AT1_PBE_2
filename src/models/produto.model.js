@@ -4,7 +4,7 @@ const produtoModel = {
   // Nós temos uma consulta para inserir informações na nossa tabela
   insert: async (pProduto) => {
     const sql =
-      "INSERT INTO produtos (id_categoria, nomeProduto, valorProduto, vinculoImagem, dataCad) VALUES (?,?,?,?,NOW());";
+      "INSERT INTO produtos (id_categoria, nome_produto, valor_produto, vinculoImagem, dataCad) VALUES (?,?,?,?,NOW());";
     const values = [
       pProduto.id_categoria,
       pProduto.nomeProduto,
@@ -42,8 +42,8 @@ const produtoModel = {
             UPDATE produtos 
             SET 
                 id_categoria = ?,
-                nomeProduto = ?,
-                valorProduto = ?,
+                nome_produto = ?,
+                valor_produto = ?,
                 vinculoImagem = COALESCE(?, vinculoImagem)
             WHERE idProduto = ?
         `;
