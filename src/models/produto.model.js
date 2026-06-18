@@ -11,7 +11,7 @@ const produtoModel = {
 
     //Aqui temos uma consulta para ver os dados que foram inseridos na tabela
     selectAll: async () => {
-        const sql = 'SELECT p.id_produto, p.id_categoria, c.nome_categoria, p.nome_produto, p.valorProduto, p.vinculoImagem, p.dataCad FROM produtos p LEFT JOIN categorias c ON p.id_categoria = c.id_categoria ORDER BY p.id_produto DESC';
+        const sql = 'SELECT p.idProduto, p.id_categoria, c.nome_categoria, p.nome_produto, p.valorProduto, p.vinculoImagem, p.dataCad FROM produtos p LEFT JOIN categorias c ON p.id_categoria = c.id_categoria ORDER BY p.idProduto DESC';
         const [rows] = await pool.query(sql);
         return rows;
     },
