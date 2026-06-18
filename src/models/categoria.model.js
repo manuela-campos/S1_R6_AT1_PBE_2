@@ -3,8 +3,8 @@ import { connection as pool } from "../config/db.js";
 const categoriaModel = {
   insertCategoria: async (cCategoria) => {
     const sql =
-      "INSERT INTO categorias (descricaoCategoria, dataCad) VALUES (?, NOW());";
-    const values = [cCategoria.descricaoCategoria, cCategoria.dataCad];
+      "INSERT INTO categorias (nome_categoria, dataCad) VALUES (?, NOW());";
+    const values = [cCategoria.nome_categoria, cCategoria.dataCad];
     const [rows] = await pool.query(sql, values);
     return rows;
   },
