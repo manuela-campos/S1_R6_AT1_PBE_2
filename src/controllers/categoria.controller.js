@@ -12,17 +12,10 @@ const categoriaController = {
     try {
       console.log(req.body);
 
-      const { id_categoria, descricaoCategoria } = req.body;
-
-      // tratamento do id_categoria e valor do produto
-      if (!validacoes.isNumeroInteiro(id_categoria)) {
-        return res.status(400).json({
-          message: "ID da categoria deve ser um número inteiro válido",
-        });
-      }
+      const { nome_categoria } = req.body;
 
       // Verificar se o nome está vazio e remover qualquer espaço em branco iniciais ou finais
-      if (descricaoCategoria.trim().lenght === 0) {
+      if (nome_categoria.trim().lenght === 0) {
         return res
           .status(400)
           .json({ message: "O campo descrição da categoria está vazio" });
@@ -30,8 +23,7 @@ const categoriaController = {
 
       // Vai funcionar da seguinte forma é onde vai preparar o objeto para salvar os valores
       const novaCategoria = {
-        idCategoria: parseInt(id_categoria),
-        descricaoCategoria: descricaoCategoria.trim(), // remove os espaços desnecessários declarados no início e/ou no final de uma string.
+        nome_categoria: nome_categoria.trim(), // remove os espaços desnecessários declarados no início e/ou no final de uma string.
       };
 
       // Salva no banco
@@ -50,11 +42,11 @@ const categoriaController = {
     try {
     console.log(req.body);
       const { id_categoria } = req.params;
-      const { descricaoCategoria } = req.body;
+      const { nome_categoria } = req.body;
       
 
       // Verificar se a descrição está vazia e remover qualquer espaço em branco iniciais ou finais
-      if (descricaoCategoria.trim().lenght === 0) {
+      if (nome_categoria.trim().lenght === 0) {
         return res
           .status(400)
           .json({ message: "O campo descrição da categoria está vazio" });
@@ -62,7 +54,7 @@ const categoriaController = {
 
       // verificar se o produto já existe
       const categoriaAtual =
-        await categoriaModel.selectById(descricaoCategoria);
+        await categoriaModel.selectById(nome_categoria);
       if (categoriaAtual === 1) {
         return res
           .status(409)
