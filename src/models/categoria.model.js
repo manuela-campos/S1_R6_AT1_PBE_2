@@ -1,4 +1,4 @@
-import { connection } from "../config/db.js"; 
+import { connection as pool } from "../config/db.js"; 
 
 const categoriaModel = {
   insertCategoria: async (cCategoria) => {
