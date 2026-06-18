@@ -1,4 +1,4 @@
-import pool from "../config/db.js";
+import { connection } from "../config/db";
 
 const produtoModel = {
     // Nós temos uma consulta para inserir informações na nossa tabela

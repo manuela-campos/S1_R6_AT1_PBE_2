@@ -1,4 +1,4 @@
-import pool from "../config/db.js";
+import { connection } from "../config/db"; 
 
 const categoriaModel = {
   insertCategoria: async (cCategoria) => {
@@ -50,3 +50,4 @@ const categoriaModel = {
 };
 
 export default categoriaModel;
+
