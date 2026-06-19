@@ -9,7 +9,7 @@ const app = express();
 
 app.use(express.json());
 // rota para ser disponibilizada para fazer dowload
-app.use('/uplaods', express.static('uploads'));
+app.use('/uploads', express.static('uploads'));
 app.use('/', produtoRoutes);
 app.use('/', categoriaRoutes);
 
