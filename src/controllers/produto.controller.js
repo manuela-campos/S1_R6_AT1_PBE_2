@@ -116,21 +116,22 @@ const produtoController = {
   },
   listarTodos: async (req, res) => {
     try {
-      const result = await produtoModel.selectAll();
-      res.status(200).json({ data: result });
+      // const result = await produtoModel.selectAll();
+     
 
       // Verifica se a consulta é retornada
       const resultado = await produtoModel.selectAll();
       if (resultado.length === 0) {
         return res
-          .status(404)
+          .status(200)
           .json({ message: `A consulta não retornou resultados` });
       }
-      res.status(200).json({
-        // quantidade: resultado.length,
-        // data: resultado,
-        data: resultado
-      });
+      // res.status(200).json({
+      //   // quantidade: resultado.length,
+      //   // data: resultado,
+      //   data: resultado
+      // });
+      return res.status(200).json({ data: resultado });
     }  catch (error) {
     return res.status(500).json({
       message: "Erro ao listar produtos",
