@@ -121,7 +121,7 @@ const produtoController = {
 
       // Verifica se a consulta é retornada
       const resultado = await produtoModel.selectAll();
-      if (!resultado || resultado.length === 0) {
+      if (resultado.length === 0) {
         return res
           .status(404)
           .json({ message: `A consulta não retornou resultados` });
@@ -129,7 +129,7 @@ const produtoController = {
       res.status(200).json({
         // quantidade: resultado.length,
         // data: resultado,
-        resultado
+        data: resultado
       });
     }  catch (error) {
     return res.status(500).json({
