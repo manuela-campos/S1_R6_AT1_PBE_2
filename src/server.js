@@ -8,11 +8,10 @@ import { initializeDatabase } from './config/db.js';
 const app = express();
 
 app.use(express.json());
+// rota para ser disponibilizada para fazer dowload
+app.use('/uplaods', express.static(path.resolve('uploads')));
 app.use('/', produtoRoutes);
 app.use('/', categoriaRoutes);
-
-// rota para ser disponibilizada para fazer dowload
-app.use('/images', express.static(path.resolve('uploads/images')));
 
 
 initializeDatabase().then(() => {
